@@ -1,0 +1,36 @@
+<?!= include('styles.css.html'); ?>
+ 
+<? if (data.norecord === true) { ?>
+  <p>No signature has previously been saved</p>
+<? } ?>
+<form action="<?= data.url ?>" method="get">
+  <fieldset id="name"><legend>Contact</legend>
+    <label for="name">Name<input type="text" id="name" disabled="disabled" name="name" value="<?= data.name ?>" /> This is set elsewhere, any errors report to IT</label>
+    <div class="chunk">
+      <label class='radio' for="aam"><input id="aam" type="radio" name="company" value="aam" checked="checked" /><span class="chunk">Allies and Morrison<br />Architects</span></label>
+      <label class='radio' for="amup"><input id="amup" type="radio" name="company" value="amup" /><span class="chunk">Allies and Morrison<br />Urban Practitioners</span></label>
+    </div>
+    <p>Which Offices do you operate from?</p>
+    <label class='radio' for="london"><input id="london" type="checkbox" name="address" value="london" checked="checked" />Southwark Street</label>
+    <label class='radio' for="doha"><input id="doha" type="checkbox" name="address" value="doha" />Doha</label>
+    <label class='radio' for="liverpool"><input id="liverpool" type="checkbox" name="address" value="liverpool" />Liverpool</label>
+  </fieldset>
+  <fieldset>
+    <legend>Optional Details</legend>
+    <label for="pa">PA<input id="pa" name="pa" type="text" /> If you have a PA/Secretary, include their name here.</label>
+    <label class="radio" for="pato">PA to:<input id="pato" name="delegators" type="text" /></label> Add all Partners and Directors to whom you are a PA/Secretary (separated by commas)
+    <label for="direct">Direct Line<input id="direct" type="text" name="directline" /> (or direct line to PA)</label>
+    <label for="mobile">Mobile<input id="mobile" type="text" name="mobile" /> If you use your mobile phone for work</label>
+  </fieldset>
+  <fieldset id="title"><legend>Title</legend>
+    <label class='radio' for="partner"><input id="partner" type="radio" name="title" value="Partner" />Partner</label>
+    <label class='radio' for="director"><input id="director" type="radio" name="title" value="Director" />Director</label>
+    <label class='radio' for="assdirector"><input id="assdirector" type="radio" name="title" value="Associate Director" />Associate Director</label>
+    <label class='radio' for="seniorass"><input id="seniorass" type="radio" name="title" value="Senior Associate" />Senior Associate</label>
+    <label class='radio' for="ass"><input id="ass" type="radio" name="title" value="Associate" />Associate</label>
+    <label class='radio' for="none"><input id="none" type="radio" name="title" value="" checked="checked" />None</label>
+  </fieldset>
+  <div id="buttons">
+    <button name="fn" value="Build Signature">Save These Settings</button>
+  </div>
+</form>

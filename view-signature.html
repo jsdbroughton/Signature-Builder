@@ -1,0 +1,48 @@
+<? if (data.send !== true || data.sent === true) { ?>
+  <?!= include('styles.css.html'); ?>
+  <? if (data.build === true) { ?>
+    <p>Your settings resulted in the signature block below. To add it to your account click "Save to GMail".</p>
+  <? } else { ?>
+    <p>Your <? if (data.sent === true) { ?>saved signature is<? } else { ?>previously generated signature block<? } ?> is below.</p><p><? if (data.sent !== true) { ?>To reset your account signature to this, click "Save to GMail".<? } else { ?>You will need to close any GMail windows and reopen for this to become effective.<? } ?></p>
+  <? } ?>
+<? } ?>
+<div dir="ltr" style="color:#222;font-family:'Open Sans',arial;font-size:13px">
+  <div style="color:#222;font-family:'Open Sans',arial;font-size:13px;"><?!= data.name ?></div>
+  <? if (data.title !== '') { ?><div style="margin-bottom:1em"><?= data.title ?></div><? } ?>
+  <? if (data.delegators) { ?><div>PA to <?= data.delegators; ?></div><? } ?>
+	<? if (data.pa) { ?><div><span>PA</span>&nbsp;<span><?= data.pa; ?></span></div><? } ?>
+	<? if (data.directline) { ?><div><span>direct line</span>&nbsp;<span><?= data.directline; ?></span></div><? } ?>
+	<? if (data.mobile) { ?><div><span>mobile</span>&nbsp;<span><?= data.mobile; ?></span></div><? } ?>
+  <div>
+    <div style="margin-top:1em; font-weight:bold;color:#000;font-family:'Open Sans',arial;font-size:13px">
+      Allies and Morrison<br />
+      <? if (data.company === 'amup') { ?>
+        Urban Practitioners
+      <? } else { ?>
+        Architects
+      <? } ?>
+    </div>
+    <div style="color:#222;font-family:'Open Sans',arial;font-size:13px">
+      <? for (address in data.addresses) { ?>
+        <?!= data.addresses[address]; ?>
+      <? } ?>
+    </div>
+    <div style="color:#222;font-family:'Open Sans',arial;font-size:13px">
+      <? if (data.company === 'amup') { ?>
+        <a href="http://am-up.com" style="text-decoration:underline;" target="_blank">am-up.com</a>
+      <? } else { ?>
+        <a href="http://alliesandmorrison.com?source=emailsignature" style="text-decoration:underline;" target="_blank">alliesandmorrison.com</a>
+      <? } ?>
+    </div>  
+  </div>
+</div>
+<? if (data.send !== true || data.sent === true) { ?>
+  <div id="buttons">
+    <form method="get" action="<?= data.url ?>">
+      <button name="fn" value="Start Over">Build a new Signature Block</button>
+      <? if (data.sent !== true) { ?>
+        <button name="fn" value="Set Signature">Save to GMail</button>
+      <? } ?>
+    </form>
+  </div>
+<? } ?>
